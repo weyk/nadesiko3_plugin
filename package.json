@@ -1,0 +1,67 @@
+{
+  "name": "@weyk/nadesiko3_plugin",
+  "version": "0.0.1",
+  "description": "plugin for nadesiko 3",
+  "scripts": {
+    "test": "mocha",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weyk/nadesiko3_plugin.git"
+  },
+  "keywords": [
+    "script"
+  ],
+  "author": "weyk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/weyk/nadesiko3_plugin/issues"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "browsers": [
+              "last 1 version",
+              "last 2 Safari versions",
+              "last 2 iOS versions"
+            ]
+          }
+        }
+      ]
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "standard",
+      "eslint:recommended"
+    ],
+    "env": {
+      "mocha": true
+    },
+    "rules": {
+      "no-console": "off"
+    }
+  },
+  "homepage": "https://github.com/weyk/nadesiko3_plugin#readme",
+  "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.2.0",
+    "eslint": "^3.18.0",
+    "eslint-config-standard": "^10.2.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^4.2.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "mocha": "^3.2.0",
+    "source-map": "^0.5.6",
+    "webpack": "^2.3.0"
+  },
+  "dependencies": {
+    "three": "^0.87.1"
+  }
+}
