@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=320,initial-scale=1">
+    <title>なでしこ3/タートルグラフィックス3D</title>
+    <!-- なでしこを使う準備 -->
+    <script src="three.js"></script>
+    <script src="../release/wnako3.js"></script>
+    <script src="../release/plugin_weykturtle3d.js"></script>
+    <!-- なでしこを呼び出して使う -->
+    <script src="common.js"></script>
+    <script src="turtle3d_test.js"></script>
+    <link rel="stylesheet" type="text/css" href="common.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+
+<h1><a name="top">なでしこ3/タートルグラフィックス3D その3</a></h1>
+
+<div class="sbox">
+    <h4><a name="turtle_txt_head">カメ</a></h4>
+    <textarea id="turtle_txt" class="src" rows="5" title="カメ">
+T3Dカメ作成。
+T3D軸線ヘルパ表示
+0にT3Dカメ操作対象設定
+200にT3Dカメ速度設定。
+# 左右
+3回、
+　　2だけT3Dカメ右回転
+ここまで。
+6回、
+　　2だけT3Dカメ左回転
+ここまで。
+10回、
+　　20だけT3Dカメ進む
+ここまで。
+</textarea>
+    <div><p id="turtle_txt_info" class="info"></p></div>
+    <button onclick="runBox('turtle_txt')">実行</button>
+</div>
+
+<div class="sbox">
+    <h4><a name="sikaku_txt_head">立方体</a></h4>
+    <textarea id="sikaku_txt" class="src" rows="5" title="立方体描画">
+200にT3Dカメ速度設定。
+T3Dカメ作成。
+Nは200
+４回
+　　３回、
+　　　　NだけT3Dカメ進む。
+　　　　90だけT3Dカメ右回転。
+　　ここまで。
+　　オフにT3Dカメペン設定
+　　NだけT3Dカメ進む。
+　　90だけT3Dカメ右回転。
+　　NだけT3Dカメ進む。
+　　90だけT3Dカメ上回転
+　　オンにT3Dカメペン設定
+ここまで。
+100にT3Dカメ速度設定。</textarea>
+    <div><p id="sikaku_txt_info" class="info"></p></div>
+    <button onclick="runBox('sikaku_txt')">実行</button>
+</div>
+
+
+<!-- 実行結果を表示するパーツ -->
+<div id="editor" class="edit_div">
+    <div class="turtle_box">
+        <p class="edit_head"><a name="run">実行結果:</a></p>
+        <p>
+            <div id="turtle3d_div" class="turtle_canvas" style="width:480px; height:400px;margin-left: auto;margin-right: auto;"></div>
+            ※ThreeJsのOrbitControlは無効です。<br>
+        </p>
+        <p>(<a href="#sankaku_txt" id="backlink">↑戻る</a>)</p>
+    </div>
+  <div id='err' class="err"></div>
+</div>
+
+<div class="sbox">
+    <h3>その他</h3>
+    <ul>
+        <li><a href="turtle3d2.html">タートルグラフィックス3Dのサンプル１へ</a></li>
+        <li><a href="#top">タートルグラフィックス3Dのサンプル２</a></li>
+        <li><a href="turtle3d.html">タートルグラフィックス3Dのエディタへ</a></li>
+        <li><a href="index.html">デモのトップページへ</a></li>
+    </ul>
+</div>
+
+</body>
+</html>

@@ -1,17 +1,19 @@
 const path = require('path')
-const srcPath = path.join(__dirname, 'src')
-const releasePath = path.join(__dirname, 'release')
+const srcPath = path.resolve(__dirname, 'src')
+const releasePath = path.resolve(__dirname, 'release')
 
 process.noDeprecation = true
 
 module.exports = {
   entry: {
-    plugin_weykdatetime: path.join(srcPath, 'plugin_weykdatetime.js')
+    plugin_weykthree: path.join(srcPath, 'plugin_weykthree.js'),
+    plugin_weykturtle3d: path.join(srcPath, 'plugin_weykturtle3d.js')
   },
 
   output: {
     path: releasePath,
-    filename: '[name].js'
+    filename: '[name].js',
+    publicPath: releasePath
   },
 
   devtool: 'cheap-module-eval-source-map',

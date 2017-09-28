@@ -4,7 +4,11 @@
   "description": "plugin for nadesiko 3",
   "scripts": {
     "test": "mocha",
-    "build": "webpack"
+    "build": "webpack",
+    "build:command": "node node_modules/nadesiko3/src/cnako3.js batch/build_command.nako3",
+    "watch": "webpack --watch -d",
+    "web": "browser-sync start --config bs-config.js",
+    "start": "run-p watch web"
   },
   "repository": {
     "type": "git",
@@ -50,7 +54,9 @@
   "devDependencies": {
     "babel-core": "^6.24.0",
     "babel-loader": "^7.0.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.2.0",
+    "browser-sync": "^2.18.13",
     "eslint": "^3.18.0",
     "eslint-config-standard": "^10.2.0",
     "eslint-plugin-import": "^2.2.0",
@@ -58,10 +64,11 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "mocha": "^3.2.0",
+    "npm-run-all": "^4.1.1",
     "source-map": "^0.5.6",
-    "webpack": "^2.3.0"
-  },
-  "dependencies": {
+    "webpack": "^2.3.0",
+    "nadesiko3": "^0.1.5",
+    "webpack-dev-server": "^2.8.2",
     "three": "^0.87.1"
   }
 }
