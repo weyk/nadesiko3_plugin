@@ -16,6 +16,7 @@ const PluginWeykTurtle3D = {
         containerid: "",
         camera: -1,
         target: -1,
+        backalpha: 1.0,
         backcolor: new THREE.Color(0x000000),
         _scene : null,
         _lines: new THREE.Object3D(),
@@ -240,6 +241,14 @@ const PluginWeykTurtle3D = {
             }
           }
         },
+        setBackgroundAlpha: function(a) {
+          this.backalpha = a
+          this._renderer.setClearAlpha(this.backalpha)
+        },
+        setBackgroundColor: function(c) {
+          this.backcolor = new THREE.Color(c)
+          this._renderer.setClearColor(this.backcolor)
+        },
         setRenderTarget: function() {
           // 描画先をセットする
           const divId = sys.__getSysValue('T3Dカメ描画先', 'turtle3d_div')
@@ -248,11 +257,11 @@ const PluginWeykTurtle3D = {
             throw new Error('[ERROR] T3Dカメ描画先が見当たりません。' + divId)
             return
           }
-          const renderer = new THREE.WebGLRenderer({ antialias: false })
+          const renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true })
           if (renderer === null) {
             throw new Error('レンダラを作成できません')
           }
-          renderer.setClearColor(sys._weykturtle3d.backcolor)
+          renderer.setClearColor(sys._weykturtle3d.backcolor, 1.0)
           renderer.setPixelRatio( window.devicePixelRatio )
           renderer.setSize( div.clientWidth, div.clientHeight )
           this._camera.aspect = div.clientWidth / div.clientHeight
@@ -761,7 +770,22 @@ const PluginWeykTurtle3D = {
     },
     return_none: true
   },
-  // @3Dタートルグラフィックス/ヘルパ機能
+  'T3D背景色設定': { // @canvasをクリアする際の背景色を設定する // @T3Dはいけいしょくせってい
+    type: 'func',
+    josi: [['に', 'へ']],
+    fn: function (c, sys) {
+      if (!sys._weykturtle3d) return null
+      if (c==="透明"){
+        sys._weykturtle3d.setBackgroundAlpha(0.0)
+      }else
+      if (c==="不透明"){
+        sys._weykturtle3d.setBackgroundAlpha(1.0)
+      }else{
+        sys._weykturtle3d.setBackgroundColor(c)
+      }
+    },
+    return_none: true
+  },
   'T3DJSON取得': { // @描画した線のJSON形式で取得する // @T3DJSONしゅとく
     type: 'func',
     josi: [],
@@ -771,6 +795,7 @@ const PluginWeykTurtle3D = {
     },
     return_none: false
   },
+  // @3Dタートルグラフィックス/ヘルパ機能
   'T3Dカメラヘルパ表示': { // @カメラヘルパーを表示する // @T3Dかめらへるぱひょうじ
     type: 'func',
     josi: [],

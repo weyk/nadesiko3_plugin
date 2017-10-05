@@ -15,6 +15,7 @@ module.exports = {
         "/release/wnako3.js": "../nadesiko3/release/wnako3.js",
         "/release/plugin_turtle.js": "../nadesiko3/release/plugin_turtle.js",
         "/release/editor.js": "../nadesiko3/release/editor.js",
+        "/release/terminal.js": "../nadesiko3/release/terminal.js",
         "/release/command.json": "../nadesiko3/release/command.json",
         "/release/plugin_weykdatetime.js": "../nadesiko3-weykdatetime/src/plugin_weykdatetime.js",
         "/release/weykdatetime.json": "../nadesiko3-weykdatetime/release/weykdatetime.json",

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>なでしこ3</title>
+  <!-- common -->
+  <link rel="stylesheet" type="text/css" href="common.css">
+  <!-- index -->
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <!-- editor -->
+  <link rel="stylesheet" type="text/css" href="terminal.css">
+
+<script src="js/polyfill/polyfill.min.js"></script>
+
+</head>
+<body>
+<h1>なでしこ3のデモ</h1>
+<div id="terminal" class="term_div">
+  <p class="term_head">簡易ターミナル:</p>
+  <div class="baseContainer">
+    <div class="terminal-component" id="scrollframe">
+      <script type="application/json">
+        {
+          "commandListUrl": ["../release/command.json","../release/weykplugin.json","../release/weykdatetime.json"]
+        }
+      </script>
+    </div>
+  </div>
+</div>
+
+<br />
+
+<h3>参考</h3>
+<div>
+  <ul>
+    <li><a href="http://nadesi.com/doc3">なでしこ3のマニュアル(→Web)</a></li>
+    <li><a href="index.html">デモのトップ</a></li>
+  </ul>
+</div>
+
+<!-- editor -->
+<!--React.jsのスクリプトはHTMLの末尾で読み込む-->
+<script src="../release/terminal.js"></script>
+</body>
+</html>
