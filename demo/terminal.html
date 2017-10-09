@@ -19,13 +19,27 @@
 <div id="terminal" class="term_div">
   <p class="term_head">簡易ターミナル:</p>
   <div class="baseContainer">
-    <div class="terminal-component" id="scrollframe">
+    <div class="terminal-component">
       <script type="application/json">
         {
-          "commandListUrl": ["../release/command.json","../release/weykplugin.json","../release/weykdatetime.json"]
+          "inputId": "teminalInput"
         }
       </script>
     </div>
+    <div class="canvas-holder">
+      <div class="canvas-frame">
+        <div id="turtle3d_div">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="commandlist-component">
+    <script type="application/json">
+      {
+        "commandListUrl": ["../release/command.json","../release/weykplugin.json","../release/weykdatetime.json"],
+        "inputId": "teminalInput"
+      }
+    </script>
   </div>
 </div>
 
@@ -42,5 +56,8 @@
 <!-- editor -->
 <!--React.jsのスクリプトはHTMLの末尾で読み込む-->
 <script src="../release/terminal.js"></script>
+<script src="../release/plugin_weykdatetime.js"></script>
+<script src="js/three/three.min.js"></script>
+<script src="../release/plugin_weykturtle3d.js"></script>
 </body>
 </html>

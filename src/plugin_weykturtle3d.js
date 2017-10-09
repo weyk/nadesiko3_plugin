@@ -243,11 +243,15 @@ const PluginWeykTurtle3D = {
         },
         setBackgroundAlpha: function(a) {
           this.backalpha = a
-          this._renderer.setClearAlpha(this.backalpha)
+          if (this._renderer) {
+            this._renderer.setClearAlpha(this.backalpha)
+          }
         },
         setBackgroundColor: function(c) {
           this.backcolor = new THREE.Color(c)
-          this._renderer.setClearColor(this.backcolor)
+          if (this._renderer) {
+            this._renderer.setClearColor(this.backcolor,this.backalpha)
+          }
         },
         setRenderTarget: function() {
           // 描画先をセットする
@@ -261,7 +265,7 @@ const PluginWeykTurtle3D = {
           if (renderer === null) {
             throw new Error('レンダラを作成できません')
           }
-          renderer.setClearColor(sys._weykturtle3d.backcolor, 1.0)
+          renderer.setClearColor(this.backcolor,this.backalpha)
           renderer.setPixelRatio( window.devicePixelRatio )
           renderer.setSize( div.clientWidth, div.clientHeight )
           this._camera.aspect = div.clientWidth / div.clientHeight
@@ -477,7 +481,6 @@ const PluginWeykTurtle3D = {
       if (scene === null) {
         throw new Error('シーンを作成できません')
       }
-      scene.background = new THREE.Color( 0x000000 );
       sys._weykturtle3d._scene = scene
       const camera = new THREE.PerspectiveCamera(60, 1.0, 1, 65000)
       if (camera === null) {
